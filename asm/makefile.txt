@@ -1,0 +1,15 @@
+
+CC = g++
+EXECUTABLE = asm
+SOURCES = FileManager.cpp lexer.cpp Parser.cpp main.cpp LabelTable.cpp
+OBJECTS = $(SOURCES:.cpp=.o)
+
+$(EXECUTABLE):$(SOURCES) $(OBJECTS)
+	$(CC) $(OBJECTS) -o $@
+
+.cpp.o: 
+	$(CC) -c $< -o $@
+
+#use clean to delete .o files
+clean:
+	rm -rf *.o $(EXECUTABLE)

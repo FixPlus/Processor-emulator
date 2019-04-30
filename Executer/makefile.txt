@@ -1,0 +1,15 @@
+
+CC = g++
+EXECUTABLE = Executer
+SOURCES = FileManager.cpp Main.cpp stack.cpp Executer.cpp
+OBJECTS = $(SOURCES:.cpp=.o)
+
+$(EXECUTABLE):$(SOURCES) $(OBJECTS)
+	$(CC) $(OBJECTS) -o $@
+
+.cpp.o: 
+	$(CC) -c $< -o $@
+
+#use clean to delete .o files
+clean:
+	rm -rf *.o $(EXECUTABLE)
